@@ -1,0 +1,12 @@
+#menu-lateral{
+   display:none;
+}
+ 
+#painel-login{
+    padding: 4em;
+}
+
+.panel-heading {
+    background-color: #C8F6EA !important;
+    border-color: #0dff0d !important;
+}

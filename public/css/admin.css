@@ -1,0 +1,42 @@
+
+@import url(app_.css);
+
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+
+.website{
+    text-align: right;
+    opacity: .4;
+    /* float: right !important; */
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    transition: 2s;
+    text-align: center;
+}
+
+.website div {
+    transition: 1s;
+}
+
+.website:hover {
+    opacity: 1;
+}
+
+.website:hover div {
+    background-color: deepskyblue;
+    font-size: larger;
+    transition: 1s;
+}
+
+.website:hover a {
+    color: white;
+    text-decoration: none;
+}
+
+a{
+    color: #ca0000;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 700;
+}

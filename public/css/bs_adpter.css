@@ -1,0 +1,13 @@
+.navbar-inverse {
+    background-color: #F1F5F4;
+    border-color: #C31111;
+    transition: 1s;
+    color: black;
+    font-weight: bolder;
+}
+
+.navbar-inverse:hover{
+    background-color: #C8F6EA !important;
+    border-color: #2AF50C !important;
+    transition: 1s;
+}

@@ -1,0 +1,112 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'express',
+1 verbose cli   'redis',
+1 verbose cli   'socket.io',
+1 verbose cli   '--save' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 silly cache add args [ 'express', null ]
+6 verbose cache add spec express
+7 silly cache add args [ 'redis', null ]
+8 verbose cache add spec redis
+9 silly cache add args [ 'socket.io', null ]
+10 verbose cache add spec socket.io
+11 silly cache add parsed spec { raw: 'express',
+11 silly cache add   scope: null,
+11 silly cache add   name: 'express',
+11 silly cache add   rawSpec: '',
+11 silly cache add   spec: '*',
+11 silly cache add   type: 'range' }
+12 verbose addNamed express@*
+13 silly addNamed semver.valid null
+14 silly addNamed semver.validRange *
+15 silly addNameRange { name: 'express', range: '*', hasData: false }
+16 silly mapToRegistry name express
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/express
+20 verbose addNameRange registry:https://registry.npmjs.org/express not in flight; fetching
+21 silly cache add parsed spec { raw: 'redis',
+21 silly cache add   scope: null,
+21 silly cache add   name: 'redis',
+21 silly cache add   rawSpec: '',
+21 silly cache add   spec: '*',
+21 silly cache add   type: 'range' }
+22 verbose addNamed redis@*
+23 silly addNamed semver.valid null
+24 silly addNamed semver.validRange *
+25 silly addNameRange { name: 'redis', range: '*', hasData: false }
+26 silly mapToRegistry name redis
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry https://registry.npmjs.org/
+29 silly mapToRegistry uri https://registry.npmjs.org/redis
+30 verbose addNameRange registry:https://registry.npmjs.org/redis not in flight; fetching
+31 silly cache add parsed spec { raw: 'socket.io',
+31 silly cache add   scope: null,
+31 silly cache add   name: 'socket.io',
+31 silly cache add   rawSpec: '',
+31 silly cache add   spec: '*',
+31 silly cache add   type: 'range' }
+32 verbose addNamed socket.io@*
+33 silly addNamed semver.valid null
+34 silly addNamed semver.validRange *
+35 silly addNameRange { name: 'socket.io', range: '*', hasData: false }
+36 silly mapToRegistry name socket.io
+37 silly mapToRegistry using default registry
+38 silly mapToRegistry registry https://registry.npmjs.org/
+39 silly mapToRegistry uri https://registry.npmjs.org/socket.io
+40 verbose addNameRange registry:https://registry.npmjs.org/socket.io not in flight; fetching
+41 verbose request uri https://registry.npmjs.org/express
+42 verbose request no auth needed
+43 info attempt registry request try #1 at 20:23:30
+44 verbose request id ae43def55f94c9f8
+45 http request GET https://registry.npmjs.org/express
+46 verbose request uri https://registry.npmjs.org/redis
+47 verbose request no auth needed
+48 info attempt registry request try #1 at 20:23:31
+49 http request GET https://registry.npmjs.org/redis
+50 verbose request uri https://registry.npmjs.org/socket.io
+51 verbose request no auth needed
+52 info attempt registry request try #1 at 20:23:31
+53 http request GET https://registry.npmjs.org/socket.io
+54 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+55 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+56 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+57 info attempt registry request try #2 at 20:23:41
+58 http request GET https://registry.npmjs.org/express
+59 info attempt registry request try #2 at 20:23:41
+60 http request GET https://registry.npmjs.org/redis
+61 info attempt registry request try #2 at 20:23:41
+62 http request GET https://registry.npmjs.org/socket.io
+63 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+64 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+65 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+66 info attempt registry request try #3 at 20:24:41
+67 http request GET https://registry.npmjs.org/express
+68 info attempt registry request try #3 at 20:24:41
+69 http request GET https://registry.npmjs.org/redis
+70 info attempt registry request try #3 at 20:24:41
+71 http request GET https://registry.npmjs.org/socket.io
+72 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org
+72 verbose stack     at errnoException (dns.js:44:10)
+72 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:94:26)
+73 verbose cwd d:\DESENVOLVIMENTO\store\webstore
+74 error Windows_NT 6.3.9600
+75 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "express" "redis" "socket.io" "--save"
+76 error node v0.12.2
+77 error npm  v2.7.4
+78 error code ENOTFOUND
+79 error errno ENOTFOUND
+80 error syscall getaddrinfo
+81 error network getaddrinfo ENOTFOUND registry.npmjs.org
+81 error network This is most likely not a problem with npm itself
+81 error network and is related to network connectivity.
+81 error network In most cases you are behind a proxy or have bad network settings.
+81 error network
+81 error network If you are behind a proxy, please make sure that the
+81 error network 'proxy' config is set properly.  See: 'npm help config'
+82 verbose exit [ 1, true ]
