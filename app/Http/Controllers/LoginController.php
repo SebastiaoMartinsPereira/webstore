@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 
 use Store\Http\Requests;
 
+use Auth;
+
 class loginController extends Controller
 {
     public function login(){
-        // return view('auth.login');
-
-         return view('teste');
+         return view('auth.login');
     }
 
     public function logout(){
-         return view('auth.logout');
+         Auth::logout();
+         return view('auth.login');
     }
 }

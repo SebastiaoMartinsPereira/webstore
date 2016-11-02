@@ -4,6 +4,7 @@ namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Store\Banner;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with('banners',Banner::all());
     }
 }

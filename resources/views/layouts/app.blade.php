@@ -202,7 +202,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">{{ auth()->user()->name }}<span class="caret"></span></a>
                             <ul class="dropdown-menu login-dropdown-menu row">
                                 <li class="col-sm-3">
-                                    <a href="{{ url('/auth/logout')}}">Sair</a></li>
+                                    <a href="{{ url('auth/logout')}}">Sair</a></li>
                             </ul>
                         </li>
                     @endif
@@ -222,22 +222,8 @@
         </div>
     </header>
    <!-- Page Content -->
-    <main class="container" >
+    <main class="container-fluid" >
         <div class="row">
-           <!--<div class="col-md-3" id="menu-lateral" >
-                <div class="col-md-12">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">Cat 1</a>
-                        <a href="#" class="list-group-item">Cat 2</a>
-                        <a href="#" class="list-group-item">Cat 3</a>
-                    </div>
-                </div>
-            </div> 
-            <div class="col-md-9">      
-                <div class="row"> 
-                </div>
-                </div>
-                -->
                 @yield('content')
         </div>
     </main>
