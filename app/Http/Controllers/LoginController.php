@@ -9,6 +9,12 @@ use Store\Http\Requests;
 class loginController extends Controller
 {
     public function login(){
-         return view('auth.login');
+        // return view('auth.login');
+
+         return view('teste');
+    }
+
+    public function logout(){
+         return view('auth.logout');
     }
 }

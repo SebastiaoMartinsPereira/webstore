@@ -1,0 +1,3 @@
+var BannerController = function(){
+
+};

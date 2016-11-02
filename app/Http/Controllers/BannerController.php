@@ -4,20 +4,17 @@ namespace Store\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Store\Http\Requests;
-
 use Illuminate\Support\Facades\Redirect;
-
+use Store\Banner;
 use Input;
 use Session;
+use Requests;
 
 class BannerController extends Controller
 {
      //
     public function form(){
-        //recupera toso os tipos de contato na base de dados
-       //$tipocontato = TipoContato::all();
-        return view('/admin.banner');
+        return view('/admin.banner')->with('banners',Banner::all());;
     }
 
     public function store(Request $request)
@@ -36,7 +33,6 @@ class BannerController extends Controller
         //     return Redirect::to('upload')->withInput()->withErrors($validator);
         // }
 
- 
         if ($request->hasFile('imagem')) 
         {
             // checking file is valid.
@@ -50,19 +46,26 @@ class BannerController extends Controller
                 
                 $request->file('imagem')->move($destinationPath, $fileName); // uploading file to given path
              
-                // sending back with message
-                Session::flash('success', 'Upload successfully');
+                Banner::firstOrCreate(['path' => $destinationPath.'\\'.$fileName
+                                    ,'nome'=> $request->nome
+                                    ,'link'=>$request->link
+                                    ,'cabecalho'=>$request->cabecalho
+                                    ,'descricao'=>$request->descricao
+                                    ]);
 
-                //return ($destinationPath.'/'.$fileName);
+                // sending back with message
+                $request->session()->flash('alert-success', 'Banner adicionado com sucesso!');
+
                 return Redirect::route('bannerForm');
             }
             else {
 
                 // sending back with error message.
-                Session::flash('error', 'uploaded file is not valid');
+                Session::flash('error', 'O arquivo é inválido!');
                 return Redirect::route('bannerForm');
             }
         }else{
+             $request->session()->flash('alert-danger', 'Faltou selecionar o banner!');
              return Redirect::route('bannerForm');
         }
 

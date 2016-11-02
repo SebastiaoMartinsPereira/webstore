@@ -4,10 +4,9 @@
   <link href="{{url('css/contato.css')}}" rel="stylesheet">
 @endsection
 
-
 @section('content')
 
-<div id="painel-contato" class="col-md-12 col-md-offset-2">
+<div id="painel-contato" class="col-md-8 col-md-offset-2">
   <div class="panel panel-default">
     <div class="panel-heading">Formulário de Contato</div>
     <div class="panel-body"> 

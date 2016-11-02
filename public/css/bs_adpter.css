@@ -11,3 +11,33 @@
     border-color: #2AF50C !important;
     transition: 1s;
 }
+
+.carousel-indicators li{
+    border: 1px solid #FFC107;
+    background-color: #000 \9;
+    background-color: rgba(0, 188, 212, 0.29);
+}
+
+.carousel-caption{
+    color: #f7f7f7;
+    text-shadow: 0 1px 2px rgb(43, 41, 41);
+}
+
+.sumido{
+    display:none;
+}
+
+.table-responsive {
+    padding-top: 4rem;
+
+}
+
+.table {
+   background-color: #f3f3f3;
+   background-color: rgb(255, 255, 255);
+}
+
+thead {
+    background-color: #428bca;
+    background-color: rgb(66, 139, 202);
+}

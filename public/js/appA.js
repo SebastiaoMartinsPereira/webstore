@@ -1,6 +1,5 @@
 app = new angular.module('app',[]);
 
-
 app.config(['$routeProvider',function($routeProvider){
 
      $routeProvider

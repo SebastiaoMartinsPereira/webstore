@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/contato', 'ContatoController@contato');
 
 Route::get('/auth/login', 'LoginController@login');
+Route::get('/auth/logout', 'LoginController@logout');
 Route::get('/auth/register', 'RegisterController@register');
 
 
@@ -27,3 +28,7 @@ Route::post('/admin/banner/add', 'BannerController@store')->name('bannerStore');
 
 Route::get('routes', function() { \Artisan::call('route:list'); return "<pre>".\Artisan::output(); });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

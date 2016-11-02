@@ -1,9 +1,9 @@
 <?php
 
 namespace Store\Http\Controllers;
-use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {

@@ -108,7 +108,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="{{ url('/admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
                     <li><a href="{{ url('/admin/banner') }}"><i class="fa fa-list-alt fa-fw"></i>Banners</a></li>
@@ -124,9 +124,17 @@
                     <li><a href="#"><i class="fa fa-cogs fa-fw"></i>Configurações</a></li>
                 </ul>
             </div>
-            <div class="col-md-9" ng-view>
+            <div class="col-md-10" ng-view>
+                <!--renderiza mensagem enviadas do servidor -->
+                <div class="flash-message">
+                    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                    @if(Session::has('alert-' . $msg))
+                        <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                    @endif
+                    @endforeach
+                </div>
+                
                @yield('content')
-              
             </div>
         </div>
     </div>
@@ -161,5 +169,13 @@
     <script src="/js/app.js"></script>
     <script src="{{url('js/app_.js')}}"></script>
     <script src="{{url('js/app.js')}}"></script>
+    <script src="{{url('js/controllers/adminController.js')}}" rel="text/javascript">
+    </script>
+
+    <script> 
+       var adminController  = new AdminController();
+    </script>
+
+    @yield('_scripts')
 </body>
 </html>
