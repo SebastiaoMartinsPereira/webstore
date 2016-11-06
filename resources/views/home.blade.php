@@ -9,26 +9,36 @@
 <div class="col-md-12">           
     <div class="row">
         
-        <div class="row carousel-holder">
-
-            <div class="col-md-12">
+        <div class="row carousel-holder"> <!--Banners Inicio-->
+            <div class="col-md-12">  
                 <div id="carousel-banner" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-
                         @foreach($banners as $index => $banner)
                             <li data-target="#carousel-banner" data-slide-to="{{$index}}" class="@if($index == 0) {{ 'active' }} @endif"></li>
                         @endforeach
                     </ol>
+
                     <div class="carousel-inner">
 
                         @foreach($banners as $index => $banner)
-                            <li data-target="#carousel-banner" data-slide-to="{{$index}}" class="item @if($index == 0) {{ 'active' }} @endif"></li>
+                        
                             <div class="item @if($index == 0) {{ 'active' }} @endif">
-                                <img class="slide-image" src="{{$banner->path}}" alt="">
+                                <img class="slide-image" src="{{$banner->path}}" alt="{{$banner->nome}}">
+                                <div class="carousel-caption">
+                                <h3>{{$banner->cabecalho}}</h3>
+                                <p>
+                                     @if ($banner->link !='') 
+                                         <a href="{{$banner->link}}">{{$banner->descricao}}</a> 
+                                     @else  
+                                          {{$banner->descricao}}                               
+                                     @endif
+                                </p>
+                                </div>
                             </div>
 
                         @endforeach
                     </div>
+
                     <a class="left carousel-control" href="#carousel-banner" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
@@ -36,9 +46,8 @@
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
-            </div>
-
-        </div>
+            </div> 
+        </div> <!--Banners Inicio-->
 
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">

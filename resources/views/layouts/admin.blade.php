@@ -95,6 +95,7 @@
             </div>
             <!-- /.nav-collapse -->
         </nav>
+        
         <div class="website col-md-2 pull-right">
             @if(!auth()->guest())
                 @if(auth()->user()->isAdmin)
@@ -104,6 +105,7 @@
                 @endif       
             @endif
         </div>
+
     </header>
 
     <div class="container-fluid">
@@ -112,16 +114,16 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active"><a href="{{ url('/admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
                     <li><a href="{{ url('/admin/banner') }}"><i class="fa fa-list-alt fa-fw"></i>Banners</a></li>
+                    <li><a href="{{ $url = route('routeGrupo') }}"><i class="fa fa fa-tasks fa-fw" aria-hidden="true"></i>Grupos</a></li>
     <!--            
-                    <li><a href="#"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
                     <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
                     <li><a href="#"><i class="fa fa-table fa-fw"></i>Table</a></li>
                     <li><a href="#"><i class="fa fa-tasks fa-fw"></i>Forms</a></li>
                     <li><a href="#"><i class="fa fa-calendar fa-fw"></i>Calender</a></li>
                     <li><a href="#"><i class="fa fa-book fa-fw"></i>Library</a></li>
                     <li><a href="#"><i class="fa fa-pencil fa-fw"></i>Applications</a></li>
-    -->
                     <li><a href="#"><i class="fa fa-cogs fa-fw"></i>Configurações</a></li>
+    -->
                 </ul>
             </div>
             <div class="col-md-10" ng-view>

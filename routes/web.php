@@ -25,9 +25,19 @@ Route::get('/auth/logout', 'LoginController@logout');
 Route::get('/auth/register', 'RegisterController@register');
 
 
-Route::get('/admin', 'AdminController@painel');
-Route::get('/admin/banner', 'BannerController@form')->name('bannerForm');
-Route::post('/admin/banner/add', 'BannerController@store')->name('bannerStore');
+Route::group(array('prefix'=>'/admin'),function(){
+
+    Route::get('', 'AdminController@painel');
+
+    Route::get('/banner', 'BannerController@index')->name('bannerIndex');
+    Route::post('/banner/add', 'BannerController@store')->name('bannerStore');
+    Route::delete('/banner/{id}', 'BannerController@delete')->name('bannerDelete');
+    
+    Route::get('/grupo', 'GrupoController@index')->name('routeGrupo');
+    Route::post('/grupo', 'GrupoController@store')->name('routeGrupo');
+    Route::delete('/grupo/{id}', 'GrupoController@destroy')->name('routeGrupoDelete');
+
+});
 
 Route::get('routes', function() { \Artisan::call('route:list'); return "<pre>".\Artisan::output(); });
 
