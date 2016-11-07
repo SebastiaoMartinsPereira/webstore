@@ -55,7 +55,24 @@ a.navbar-brand {
     font-weight: bold !important;
 }
 
- 
+a#colecoes {
+    display: inline-block;
+    width: 12em;
+}
+
+a.navbar-brand {
+    width: 100%;
+    height: 100%;
+}
+
+ul#menu {
+    max-width: 100%;
+}
+
+div#barra-busca {
+    padding-top: 1%;
+}
+
 .panel-heading {
     background-color: #C8F6EA !important;
     border-color: #0dff0d !important;

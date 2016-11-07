@@ -4,7 +4,8 @@ namespace Store\Http\Controllers\Auth;
 
 use Store\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Store\Banner;
+use Store\Grupo;
 class LoginController extends Controller
 {
     /*
@@ -34,6 +35,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout','banners'=>Banner::all(),'grupos'=>Grupo::all()]);
     }
 }
