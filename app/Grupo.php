@@ -14,4 +14,9 @@ class Grupo extends Model
     protected $fillable = [
         'nome','ativo',
     ];
+
+    public function categorias(){
+        return $this->belongsToMany('Store\Categoria','categorias_grupos','grupo_id','categoria_id')
+                    ->withTimestamps();
+    }
 }

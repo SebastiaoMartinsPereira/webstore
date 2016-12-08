@@ -37,6 +37,10 @@ Route::group(array('prefix'=>'/admin'),function(){
     Route::post('/grupo', 'GrupoController@store')->name('routeGrupo');
     Route::delete('/grupo/{id}', 'GrupoController@destroy')->name('routeGrupoDelete');
 
+    Route::get('/categoria', 'CategoriaController@index')->name('routeCategoria');
+    Route::post('/categoria', 'CategoriaController@store')->name('routeCategoria');
+    Route::delete('/categoria/{id}', 'CategoriaController@destroy')->name('routeCategoriaDelete');
+
 });
 
 Route::get('routes', function() { \Artisan::call('route:list'); return "<pre>".\Artisan::output(); });

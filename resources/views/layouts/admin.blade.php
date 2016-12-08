@@ -115,6 +115,7 @@
                     <li class="active"><a href="{{ url('/admin') }}"><i class="fa fa-home fa-fw"></i>Home</a></li>
                     <li><a href="{{ url('/admin/banner') }}"><i class="fa fa-list-alt fa-fw"></i>Banners</a></li>
                     <li><a href="{{ $url = route('routeGrupo') }}"><i class="fa fa fa-tasks fa-fw" aria-hidden="true"></i>Grupos</a></li>
+                    <li><a href="{{ $url = route('routeCategoria') }}"><i class="fa fa fa-tasks fa-fw" aria-hidden="true"></i>Categorias</a></li>
     <!--            
                     <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
                     <li><a href="#"><i class="fa fa-table fa-fw"></i>Table</a></li>

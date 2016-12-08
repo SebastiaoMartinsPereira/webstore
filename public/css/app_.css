@@ -157,3 +157,7 @@ div#barra-busca {
 footer {
     margin: 50px 0;
 }
+
+.mnu-colecoes{
+   position:static;
+}

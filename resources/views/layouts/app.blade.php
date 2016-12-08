@@ -112,118 +112,120 @@
                     <!--FIM barra de busca-->
 
                     <div class="col-md-12"> 
-                    
                         <div class="collapse navbar-collapse js-navbar-collapse">
-                        <ul id="menu" class="nav navbar-nav">
 
-                            <li class="dropdown mega-dropdown">
+                        <!--Menu Coleções-->
+                        <div class="col-md-4 mnu-colecoes">
+                            <ul id="menu" class="nav navbar-nav">
+                                <li class="dropdown mega-dropdown">
 
-                                <a href="#" id="colecoes" class="dropdown-toggle" data-toggle="dropdown">Coleções <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
-                                <ul class="dropdown-menu mega-dropdown-menu row">
-                                    
-                                    <!--NOVIDADES-->
-                                    <li class="col-sm-2"> 
-                                        <ul>
-                                            
-                                            <li class="dropdown-header">Novidades</li>
-                                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="item active">
-                                                        <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                                                        <h4><small>Item 1</small></h4>
-                                                        <button class="btn btn-primary" type="button">49,99 R$</button>
-                                                    <!--<button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button> -->
-                                                    </div>
-                                                        <!-- End Item -->
-                                                    <div class="item">
-                                                        <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                                                        <h4><small>Item 2</small></h4>
-                                                        <button class="btn btn-primary" type="button">9,99 R$</button>
+                                    <a href="#" id="colecoes" class="dropdown-toggle" data-toggle="dropdown">Coleções <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+                                    <ul class="dropdown-menu mega-dropdown-menu row">
+                                        
+                                        <!--NOVIDADES-->
+                                        <li class="col-sm-2"> 
+                                            <ul>
+                                                
+                                                <li class="dropdown-header">Novidades</li>
+                                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                    <div class="carousel-inner">
+                                                        <div class="item active">
+                                                            <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                                            <h4><small>Item 1</small></h4>
+                                                            <button class="btn btn-primary" type="button">49,99 R$</button>
                                                         <!--<button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button> -->
-                                                    </div>
+                                                        </div>
+                                                            <!-- End Item -->
+                                                        <div class="item">
+                                                            <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                                            <h4><small>Item 2</small></h4>
+                                                            <button class="btn btn-primary" type="button">9,99 R$</button>
+                                                            <!--<button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button> -->
+                                                        </div>
+                                                            <!-- End Item -->
+                                                        <div class="item">
+                                                            <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                                            <h4><small>Item 3</small></h4>
+                                                            <button class="btn btn-primary" type="button">49,99 R$</button>
+                                                        <!-- <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button> -->
+                                                        </div>
+                                                        
                                                         <!-- End Item -->
-                                                    <div class="item">
-                                                        <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                                                        <h4><small>Item 3</small></h4>
-                                                        <button class="btn btn-primary" type="button">49,99 R$</button>
-                                                    <!-- <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button> -->
-                                                    </div>
-                                                    
-                                                    <!-- End Item -->
-                                                </div><!-- End Carousel Inner -->
-                                            </div>
-                                            <!-- /.carousel -->
-                                            <li class="divider"></li> 
-                                             <form class="form" role="form">
-                                                    <div class="form-group">
-                                                        <label class="sr-only" for="email">Endereço de Email</label>
-                                                        <input type="email" class="form-control" id="email" placeholder="Digite seu email">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary btn-block">Assine</button>
-                                                </form>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Todas as Categorias<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-                                            <!-- /.carousel -->
-                                        </ul>
-                                    </li>
-                                    <!--NOVIDADES-->
-                        
-                                    <?php $counter = 0 ?> 
-                               
-                                    @if(isset($grupos) )
-                                        @foreach($grupos as $index => $grupo)
-
-                                            @if($index == 0 || $index % 2 == 0)
-                                            <li class="col-sm-2 {{ $index}}">
-                                                <ul>
-                                            @endif
-                                                    <li class="dropdown-header">{{$grupo->nome}}</li>
-                                                    <?php $counter = $counter + 1 ?>
-                                            @if( $counter > 0 && $counter % 2 == 0)
-                                                </ul>
-                                            </li>  
-                                            <?php $counter = 0 ?>
-                                            @endif
-
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- Menu -->
-                        <ul class="nav navbar-nav navbar-right" id="menu-direito"> 
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/contato') }}">Contato</a></li>
-
-                            @if(auth()->guest())
-                                @if(!Request::is('auth/login'))
-                                    <li><a href="{{ url('/auth/login') }}">Login</a></li>
-                                @endif
-                                @if(!Request::is('auth/register'))
-                                    <li><a href="{{ url('/auth/register') }}">Register</a></li>
-                                @endif
-                            @else
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">{{ auth()->user()->name }}<span class="caret"></span></a>
-                                    <ul class="dropdown-menu ">
-                                        <li>
-                                            @if(!auth()->guest() && auth()->user()->isAdmin)
-                                            <a href="{{ url('/admin') }}" class="alert-link">Painel administrativo</a>
-                                            @endif
-                                            <a href="{{ url('auth/logout')}}">Sair</a>
+                                                    </div><!-- End Carousel Inner -->
+                                                </div>
+                                                <!-- /.carousel -->
+                                                <li class="divider"></li> 
+                                                <form class="form" role="form">
+                                                        <div class="form-group">
+                                                            <label class="sr-only" for="email">Endereço de Email</label>
+                                                            <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary btn-block">Assine</button>
+                                                    </form>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Todas as Categorias<span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                                                <!-- /.carousel -->
+                                            </ul>
                                         </li>
+                                        <!--NOVIDADES-->
+                            
+                                        <?php $counter = 0 ?> 
+                                
+                                        @if(isset($grupos) )
+                                            @foreach($grupos as $index => $grupo)
 
-                                       
+                                                @if($index == 0 || $index % 2 == 0)
+                                                <li class="col-sm-2 {{ $index}}">
+                                                    <ul>
+                                                @endif
+                                                        <li class="dropdown-header">{{$grupo->nome}}</li>
+                                                        <?php $counter = $counter + 1 ?>
+                                                @if( $counter > 0 && $counter % 2 == 0)
+                                                    </ul>
+                                                </li>  
+                                                <?php $counter = 0 ?>
+                                                @endif
+
+                                            @endforeach
+                                        @endif
 
                                     </ul>
                                 </li>
-                            @endif
-                        </ul>
-                        <!-- Fim Menu -->
-                        
+                            </ul>
+                        </div>
+                        <!--FIM Menu Coleções-->
+
+                        <div class="col-md-8">
+                                <!-- Menu -->
+                                <ul class="nav navbar-nav navbar-right" id="menu-direito"> 
+                                    <li><a href="{{ url('/') }}">Home</a></li>
+                                    <li><a href="{{ url('/contato') }}">Contato</a></li>
+
+                                    @if(auth()->guest())
+                                        @if(!Request::is('auth/login'))
+                                            <li><a href="{{ url('/auth/login') }}">Login</a></li>
+                                        @endif
+                                        @if(!Request::is('auth/register'))
+                                            <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                                        @endif
+                                    @else
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  role="button" aria-expanded="false">{{ auth()->user()->name }}<span class="caret"></span></a>
+                                            <ul class="dropdown-menu ">
+                                                <li>
+                                                    @if(!auth()->guest() && auth()->user()->isAdmin)
+                                                    <a href="{{ url('/admin') }}" class="alert-link">Painel administrativo</a>
+                                                    @endif
+                                                    <a href="{{ url('auth/logout')}}">Sair</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    @endif
+                                </ul>
+                                <!-- Fim Menu -->
+                            </div>
                         </div>
                         <!-- /.nav-collapse -->
-
                     </div>
                 </div> 
             </nav>
