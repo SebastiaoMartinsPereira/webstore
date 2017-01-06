@@ -161,3 +161,8 @@ footer {
 .mnu-colecoes{
    position:static;
 }
+
+
+.display_none{
+    display: none;
+}

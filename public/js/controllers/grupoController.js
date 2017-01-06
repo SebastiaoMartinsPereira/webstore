@@ -26,6 +26,7 @@ GrupoController.prototype.novo = function(){
         console.log(error);
     }
 }
+
 GrupoController.prototype.limparFrm = function(){
     try {
         this.Id.val('');

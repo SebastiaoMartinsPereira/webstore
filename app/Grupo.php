@@ -16,7 +16,7 @@ class Grupo extends Model
     ];
 
     public function categorias(){
-        return $this->belongsToMany('Store\Categoria','categorias_grupos','grupo_id','categoria_id')
+        return $this->belongsToMany('Store\Categoria','categoria_grupo','grupo_id','categoria_id')
                     ->withTimestamps();
     }
 }

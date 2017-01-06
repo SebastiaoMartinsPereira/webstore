@@ -57,7 +57,7 @@ class GrupoController extends Controller
         else 
         {
             $model = new Grupo();
-         }
+        }
       
       $model->nome = $request->nome;
 
