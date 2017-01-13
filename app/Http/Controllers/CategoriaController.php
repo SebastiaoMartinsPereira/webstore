@@ -10,6 +10,7 @@ use Store\Grupo;
 use Store\Categoria;
 use Input;
 use Session;
+use Store\Common;
 
 class CategoriaController extends Controller
 {
@@ -23,7 +24,8 @@ class CategoriaController extends Controller
         }
     }
 
-          
+
+    ///Incluir Categoria   
     public function store(Request $request)
     {
         $model;
@@ -41,25 +43,73 @@ class CategoriaController extends Controller
         //     // send back to the page with the input data and errors
         //     return Redirect::to('upload')->withInput()->withErrors($validator);
         // }
+           
+       
+        /**Recupera Dados do grupo selecionado*/
+        $grupo = Grupo::find($request->grupo);
         
-
-        //Editando
-        if($request->id != ''){
-            $model = Categoria::find($request->id); 
+        /**Verifica se a categoria já existe -> se não instancia um model Categoria*/
+        if(Categoria::where('nome',$request->nome)->exists()){
+            $model = Categoria::where('nome',$request->nome)->first();
+        }else{
+            $model = new Categoria();   
+            $model->nome = $request->nome;   
         }
-        else 
-        {
-            $model = new Categoria();
+        /**Se a categoria já existia e estava relacionada ao grupo selecionado impede a inserção do relacionamento*/
+        if(($model->id !== null) && (null !== $grupo->categorias()->where('id',$model->id)->get())) {
+            $request->session()->flash('alert-info', 'O grupo selecionado já possui esta categoria!');
+        } else{
+            $grupo->categorias()->save($model);
+            $request->session()->flash('alert-success', 'Categoria adicionada com sucesso!');
         }
-
-       $grupo = Grupo::find($request->grupo);    
-       $model->nome = $request->nome;    
-       $grupo->categorias()->save($model);
-
-       is_null($model->id) ? $mensagem = 'Categoria adicionada com sucesso!': $mensagem = 'Categoria editado com sucesso!' ;        
-       $request->session()->flash('alert-success',$mensagem);
-       return Redirect::route('routeCategoria');
-
+        return Redirect::route('routeCategoria');
     }
 
+ 
+    ///Editar categoria
+    public function update(Request $request)
+    {
+        $model;
+
+        // getting all of the post data
+        //$file = array('image' => $request->file('imagem'));
+        
+        // // setting up rules
+        // $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+
+        // // doing the validation, passing post data, rules and the messages
+        // //$validator = Validator::make($file, $rules);
+
+        // if ($validator->fails()) {
+        //     // send back to the page with the input data and errors
+        //     return Redirect::to('upload')->withInput()->withErrors($validator);
+        // }
+
+
+        $grupo = Grupo::find($request->grupo);
+        
+        if($request->id != ''){
+            
+            /** Recupera dados do grupo no momento do clique de editar*/
+            $dados = Common::splitString($request->_aux);   
+            $id_grupo_anterior = $dados[0][1];
+             
+            /**Salva a categoria*/
+            $model = Categoria::find($request->id);
+            $model->nome = $request->nome;   
+            $model->save();
+            
+            /**Realiza a troca de categoria caso seja necessário*/
+            if($grupo->id <> $id_grupo_anterior){
+                $model->grupos()->detach($id_grupo_anterior);
+                $model->grupos()->attach($grupo->id);
+            } 
+        }
+         
+        $mensagem = 'Categoria editada com sucesso!' ;      
+
+        $request->session()->flash('alert-success',$mensagem);
+      
+        return Redirect::route('routeCategoria');
+    }
 }

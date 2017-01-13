@@ -168,18 +168,25 @@
                                             </ul>
                                         </li>
                                         <!--NOVIDADES-->
-                            
+                                        
+                                        <!--Inclui os grupos--> 
                                         <?php $counter = 0 ?> 
                                 
-                                        @if(isset($grupos) )
-                                            @foreach($grupos as $index => $grupo)
+                                        @if(isset($grupos))
 
+                                            @foreach($grupos as $index => $grupo)
+                                             
                                                 @if($index == 0 || $index % 2 == 0)
-                                                <li class="col-sm-2 {{ $index}}">
+                                                <li class="col-sm-2 {{$index}}">
                                                     <ul>
                                                 @endif
                                                         <li class="dropdown-header">{{$grupo->nome}}</li>
+                                                    @foreach($grupo->categorias()->get() as $index => $categoria)
+                                                        <li><a href="#">{{$categoria->nome}}</a></li>
+                                                    @endforeach
+
                                                         <?php $counter = $counter + 1 ?>
+                                                        
                                                 @if( $counter > 0 && $counter % 2 == 0)
                                                     </ul>
                                                 </li>  

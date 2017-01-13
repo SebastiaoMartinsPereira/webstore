@@ -39,6 +39,7 @@ Route::group(array('prefix'=>'/admin'),function(){
 
     Route::get('/categoria', 'CategoriaController@index')->name('routeCategoria');
     Route::post('/categoria', 'CategoriaController@store')->name('routeCategoria');
+    Route::put('/categoria', 'CategoriaController@update')->name('routeCategoria');
     Route::delete('/categoria/{id}', 'CategoriaController@destroy')->name('routeCategoriaDelete');
 
 });

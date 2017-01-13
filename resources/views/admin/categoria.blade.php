@@ -54,21 +54,23 @@
     </table>
 </div>
 
-<div id="frm" class="modal fade" tabindex="0" role="dialog">
+<div id="frm" class="modal fade" tabindex="0" role="dialog" method="POST">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     
         {{ Form::open(array('route' => 'routeCategoria')) }}
-
+            
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true"></span>
               </button>
                 <h4 id='frmCabecalho' class="modal-title">Nova Categoria</h4>
             </div>
+            <input id="_method" name="_method" type="hidden" value="">
+            <input id="_aux" name="_aux" type="hidden" value="">
 
             <div class="modal-body">
-
+ 
 									<div class="form-group">
 										{{Form::label('text','Grupo: ')}}
 										<select id='grupos' name='grupo' class="form-control" placeholder="teste">
@@ -105,7 +107,7 @@
     <script src="{{url('js/controllers/categoriaController.js')}}"></script>
 
     <script>    
-         let categoriaController = new CategoriaController($('#id'),$('#nome'),$('#grupos'),$('#frmCabecalho'));
+         let categoriaController = new CategoriaController($('#id'),$('#nome'),$('#grupos'),$('#frmCabecalho'),$('#_method'),$('#_aux'));
     </script>
 @endsection
 

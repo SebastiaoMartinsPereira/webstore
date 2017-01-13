@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Store\Banner;
 use Store\Grupo;
+use Store\Categoria;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
-        return view('home',['banners'=>Banner::all(),'grupos'=>Grupo::all()]);
+        $grupos = Grupo::with('categorias')->get();
+        $categorias = Categoria::get();
+        return view('home',['banners'=>Banner::all(),'grupos'=>$grupos,'categorias'=>$categorias]);
     }
 }
