@@ -13,4 +13,9 @@ class Categoria extends Model
     public function grupos(){
         return $this->belongsToMany('Store\Grupo','categoria_grupo','categoria_id','grupo_id');
     }
+
+    public function produtos(){
+        return $this->hasMany('Store\Produto','categoria_id','produto_id');
+    }
+
 }

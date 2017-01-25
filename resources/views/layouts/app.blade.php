@@ -29,7 +29,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Pathway+Gothic+One|Poiret+One" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- 
     Styles
@@ -123,7 +123,7 @@
                                     <ul class="dropdown-menu mega-dropdown-menu row">
                                         
                                         <!--NOVIDADES-->
-                                        <li class="col-sm-2"> 
+                                        <li class="col-sm-3"> 
                                             <ul>
                                                 
                                                 <li class="dropdown-header">Novidades</li>
@@ -177,7 +177,7 @@
                                             @foreach($grupos as $index => $grupo)
                                              
                                                 @if($index == 0 || $index % 2 == 0)
-                                                <li class="col-sm-2 {{$index}}">
+                                                <li class="col-sm-3 {{$index}}">
                                                     <ul>
                                                 @endif
                                                         <li class="dropdown-header">{{$grupo->nome}}</li>

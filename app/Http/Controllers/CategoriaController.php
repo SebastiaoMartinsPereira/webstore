@@ -16,6 +16,7 @@ class CategoriaController extends Controller
 {
     //
     public function index(){
+
         try{
             return view('/admin.categoria')->with('grupos',Grupo::with('categorias')->get());
         }catch(Exception $e)
@@ -53,10 +54,14 @@ class CategoriaController extends Controller
             $model = Categoria::where('nome',$request->nome)->first();
         }else{
             $model = new Categoria();   
+            
             $model->nome = $request->nome;   
         }
+
+
         /**Se a categoria já existia e estava relacionada ao grupo selecionado impede a inserção do relacionamento*/
-        if(($model->id !== null) && (null !== $grupo->categorias()->where('id',$model->id)->get())) {
+        if(($model->id !== null) && ($grupo->categorias()->where('id',$model->id)->exists())) {
+            return 'Teste';
             $request->session()->flash('alert-info', 'O grupo selecionado já possui esta categoria!');
         } else{
             $grupo->categorias()->save($model);
@@ -69,6 +74,12 @@ class CategoriaController extends Controller
     ///Editar categoria
     public function update(Request $request)
     {
+                        return response()->json([
+                'name' => 'Abigail',
+                'state' => 'CA'
+                ]);
+
+
         $model;
 
         // getting all of the post data
@@ -112,4 +123,39 @@ class CategoriaController extends Controller
       
         return Redirect::route('routeCategoria');
     }
+
+     /**
+     * Remove Categorias
+     *
+     * @param  int  $id
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($grupo_id,$categoria_id,Request $request)
+    {
+        
+                return response()->json([
+                'name' => $grupo_id,
+                'state' => $categoria_id
+                ]);
+
+
+        return Redirect::route('routeCategoria');
+        Session()->flash('alert-success','Relação entre grupo:'.$grupo->nome.' e categoria: '.$categoria->nome.' excluída com sucesso!');
+ 
+         /** fasfa
+         asdf
+         asdf
+         asdf
+                 $grupo = Grupo::find($grupo_id);
+        $categoria =  $grupo->categorias()->find($categoria_id);
+        $grupo->categorias()->detach($categoria_id);
+        
+        Session()->flash('alert-success','Relação entre grupo:'.$grupo->nome.' e categoria: '.$categoria->nome.' excluída com sucesso!');
+        return Redirect::route('routeCategoria'); 
+        */
+    }
+
+
 }
+/**$grupo_id,$categoria_id,*/

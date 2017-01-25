@@ -40,10 +40,19 @@ Route::group(array('prefix'=>'/admin'),function(){
     Route::get('/categoria', 'CategoriaController@index')->name('routeCategoria');
     Route::post('/categoria', 'CategoriaController@store')->name('routeCategoria');
     Route::put('/categoria', 'CategoriaController@update')->name('routeCategoria');
-    Route::delete('/categoria/{id}', 'CategoriaController@destroy')->name('routeCategoriaDelete');
+    Route::delete('/categoria/{id_grupo}/{id_categoria}', 'CategoriaController@destroy')->name('routeCategoriaDelete');
+
+    Route::get('/produto', 'produtoController@index')->name('routeProduto');
+    Route::post('/produto', 'produtoController@store')->name('routeProduto');
+    Route::put('/produto', 'produtoController@update')->name('routeProduto');
+    Route::delete('/produto/{id_grupo}/{id_produto}', 'produtoController@destroy')->name('routeProdutoDelete');
 
 });
 
 Route::get('routes', function() { \Artisan::call('route:list'); return "<pre>".\Artisan::output(); });
 
 Route::get('/home', 'HomeController@index');
+
+
+
+/**{id_grupo}/{id_categoria}*/

@@ -1,12 +1,14 @@
 class CategoriaController {
 
-    constructor(id,nome,grupos,frmCabecalho,method,aux){
+    constructor(id,nome,grupos,frmCabecalho,method,aux,form_confirmar_btn2){
         this.id = id;
         this.nome = nome;
         this.grupo = grupos;
         this.frmCabecalho = frmCabecalho;
         this.method = method;
         this.aux = aux;
+        this.form_confirmar_btn2 = form_confirmar_btn2;
+        this.ajaxService = new AjaxService();
     }
 
     get id(){return this._id;}
@@ -61,8 +63,20 @@ class CategoriaController {
         $(this.nome).val('');
 
     };
+   
+    
+    destroy(event,controle){
 
+       let _headers = { 'X-CSRF-TOKEN': $('meta[name*="-token"]').attr('content')}
+       let _url = '/admin/categoria/1/2';
+       
+       this.ajaxService.ajaxRequestDelete(_url
+       ,function(data){
+           console.log(data)
+       },function(data){
+            console.log(data)
+         },_headers)
+   };
 
-};
-
- 
+}
+//   data:{_method: 'delete',"_token": "{{ csrf_token() }}"},

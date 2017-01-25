@@ -19,4 +19,9 @@ class Grupo extends Model
         return $this->belongsToMany('Store\Categoria','categoria_grupo','grupo_id','categoria_id')
                     ->withTimestamps();
     }
+
+    public function produtos(){
+        return $this->hasMany('Store\Produto','grupo_id','produto_id');
+    }
+
 }

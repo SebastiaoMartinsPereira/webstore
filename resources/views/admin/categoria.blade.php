@@ -41,12 +41,14 @@
                   </td>
                   <td class="text-center"> 
                         <!--ação de deletar -->
-                        {{ Form::open(array('url' => 'admin/categoria/'.$categoria->id,'class' => 'pull-rigth')) }}
+                        {{ Form::open(array('url' => 'admin/categoria/'.$grupo->id.'/'.$categoria->id,'class' => 'pull-rigth')) }}
                             {{ Form::hidden('_method','DELETE') }}
-                            {{ Form::submit('Deletar',array('class' => 'btn btn-warning')) }}
-                        {{ Form::close() }}
+                            <!--/**{{ Form::submit('Deletar',array('class' => 'btn btn-warning')) }}*/-->
+
+                             {{ Form::button('Deletar',array('class' => 'btn btn-warning','data-toggle' => 'modal','data-target'=>'#modalConfirmacao')) }}
+
+                         {{ Form::close() }}
                   </td>
-                  
                 </tr>
              @endforeach
           @endforeach
@@ -101,13 +103,15 @@
   </div> <!--modal dialog-->
 </div> <!--modal-->
 
+@include('layouts.form_confirmar',array('cabecalho'=>'Deletar','msg'=>'Deseja relamente deletar a relação Grupo e Categoria selecionada?','btn1msg'=>'Fechar','btn2Msg'=>'Confirmar','evtclick'=>'categoriaController.destroy(event,this);'))
+
 @endsection
 
 @section('_scripts')
     <script src="{{url('js/controllers/categoriaController.js')}}"></script>
-
+    <script src="{{url('js/services/ajaxService.js')}}"></script>
     <script>    
-         let categoriaController = new CategoriaController($('#id'),$('#nome'),$('#grupos'),$('#frmCabecalho'),$('#_method'),$('#_aux'));
+         let categoriaController = new CategoriaController($('#id'),$('#nome'),$('#grupos'),$('#frmCabecalho'),$('#_method'),$('#_aux'),$('#form_confirmar_btn2'));
     </script>
 @endsection
 

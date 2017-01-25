@@ -13,18 +13,18 @@ class CreateGrupoCategoriaTable extends Migration
      */
     public function up()
     {
-    Schema::create('categoria_grupo', function(Blueprint $table)
-    {
-        $table->integer('categoria_id')->unsigned()->nullable();
-        $table->foreign('categoria_id')->references('id')
-                ->on('categorias')->onDelete('cascade');
+        Schema::create('categoria_grupo', function(Blueprint $table)
+        {
+            $table->integer('categoria_id')->unsigned()->nullable();
+            $table->foreign('categoria_id')->references('id')
+                    ->on('categorias')->onDelete('cascade');
 
-        $table->integer('grupo_id')->unsigned()->nullable();
-        $table->foreign('grupo_id')->references('id')
-                ->on('grupos')->onDelete('cascade');
-        $table->timestamps();
+            $table->integer('grupo_id')->unsigned()->nullable();
+            $table->foreign('grupo_id')->references('id')
+                    ->on('grupos')->onDelete('cascade');
+            $table->timestamps();
 
-    });
+        });
     }
 
     /**
